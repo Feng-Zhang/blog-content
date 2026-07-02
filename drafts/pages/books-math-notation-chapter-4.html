@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Feng Zhang" />
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+
+<meta property="og:title" content="数字 "/>
+<meta property="og:url" content="https://bioinfo.host/drafts/pages/books-math-notation-chapter-4.html" />
+<meta property="og:description" content="数学符号手册，翻译至Mathematical Notation by Edward R. Scheinerman。如何表示数字。" />
+<meta property="og:site_name" content="章峰的网站" />
+<meta property="og:article:author" content="Feng Zhang" />
+<meta property="og:article:published_time" content="2020-09-23T22:21:00+08:00" />
+<meta property="og:article:modified_time" content="2026-07-01T19:30:00+08:00" />
+<meta name="twitter:title" content="数字 ">
+<meta name="twitter:description" content="数学符号手册，翻译至Mathematical Notation by Edward R. Scheinerman。如何表示数字。">
+<meta property="og:image" content="https://bioinfo.host/pages/home/bio-banner1.jpg" />
+<meta name="twitter:image" content="https://bioinfo.host/pages/home/bio-banner1.jpg" >
+
+        <title>数字  · 章峰的网站
+</title>
+        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="https://bioinfo.host/theme/css/elegant.prod.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="https://bioinfo.host/theme/css/custom.css" media="screen">
+
+<style>
+    .article-meta-bottom {
+        margin-top: 6px;
+        font-size: 13px;
+        color: #666;
+    }
+
+    .article-meta-inline {
+        display: inline;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    .article-meta-inline > li {
+        display: inline;
+        margin: 0;
+        line-height: 1.8;
+    }
+
+    .article-meta-inline > li + li::before {
+        content: "|";
+        margin: 0 8px;
+        color: #bbb;
+    }
+
+    .article-meta-inline .meta-label {
+        font-weight: 600;
+        margin-right: 4px;
+    }
+
+    .article-meta-inline .tags-in-article {
+        display: inline;
+        margin: 0;
+        padding: 0;
+    }
+
+    .article-meta-inline .tags-in-article li {
+        display: inline;
+    }
+
+    .table-of-content nav {
+        position: sticky;
+        top: 72px;
+        max-height: calc(100vh - 88px);
+        overflow-y: auto;
+        padding-right: 6px;
+    }
+
+    .table-of-content nav.toc-follow-fixed {
+        position: fixed;
+        top: 72px;
+        z-index: 10;
+    }
+
+    @media (max-width: 979px) {
+        .table-of-content nav {
+            position: static;
+            top: auto;
+            max-height: none;
+            overflow: visible;
+            padding-right: 0;
+        }
+    }
+</style>
+        <link href="https://bioinfo.host/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="章峰的网站 - Full Atom Feed" />
+
+
+        <script>
+            MathJax = {
+                tex: {
+                    inlineMath: [['$', '$'], ['\\(', '\\)']],
+                    displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                    processEscapes: true
+                }
+            };
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.min.js" async></script>
+    </head>
+    <body>
+        <div id="content">
+            <div class="navbar navbar-static-top">
+                <div class="navbar-inner">
+                    <div class="container-fluid">
+                        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </a>
+                        <a class="brand" href="https://bioinfo.host/"><span class=site-name>章峰的网站</span></a>
+                        <div class="nav-collapse collapse">
+                            <ul class="nav pull-right top-menu">
+                                <li >
+                                    <a href=
+                                       https://bioinfo.host
+                                    >首页</a>
+                                </li>
+                                <li ><a href="https://bioinfo.host/categories.html">博客</a></li>
+                                <li ><a href="https://bioinfo.host/books.html">教程</a></li>
+                                <li ><a href="https://bioinfo.host/tags.html">标签</a></li>
+                                <li ><a href="https://bioinfo.host/archives.html">归档</a></li>
+                                <li ><a href="https://bioinfo.host/pages/landing-page-about-hidden-en.html">个人简介</a></li>
+                                <li><form class="navbar-search" action="https://bioinfo.host/search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="搜索" name="q" id="tipue_search_input"></form></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid">
+                <div class="row-fluid">
+                    <div class="span1"></div>
+                    <div class="span10">
+<article>
+<div class="row-fluid">
+    <header class="page-header span10 offset2">
+    <h1><a href="https://bioinfo.host/drafts/pages/books-math-notation-chapter-4.html"> 数字  </a></h1>
+        <div class="article-meta-bottom">
+        <ul class="article-meta-inline">
+        <li><span class="meta-label">Published:</span><time itemprop="dateCreated" datetime="2020-09-23T22:21:00+08:00">2020年09月23日</time></li>
+
+        <li><span class="meta-label">Last Updated:</span><time datetime="2026-07-01T19:30:00+08:00">2026年07月01日</time></li>
+
+        <li><span class="meta-label">Category:</span><a class="category-link" href="https://bioinfo.host/categories.html#books-ref">Books</a></li>
+
+
+        </ul>
+        </div>
+    </header>
+</div>
+
+<div class="row-fluid">
+    <div class="span2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div class="toc">
+<ul>
+<li><a href="#1">1. 实数</a></li>
+<li><a href="#2">2. 实数的子集</a></li>
+<li><a href="#3">3. 常见的实数</a></li>
+<li><a href="#4">4. 复数</a></li>
+<li><a href="#5">5. 基础运算符</a></li>
+<li><a href="#6">6. 其它的表示体系</a></li>
+<li><a href="#7">7. 无限</a></li>
+</ul>
+</div>
+        </nav>
+    </div>
+    <div class="span8 article-content">
+
+            
+<h2 id="1">1. 实数<a class="headerlink" href="#1" title="Permanent link">¶</a></h2>
+<p><strong>数字的书写</strong>。所有实数的集合用<span class="arithmatex">\({\Bbb R}\)</span>表示。通常来说，实数是用十进制来计数，以一个符号开始（如果是正数那么符号是可选的，但是是负数一定要在数字前面加负号），接着是一串有限的数字，一个小数点，最后接一串有限或无限的数字。</p>
+<p>小数点后面无限重复的数字块常常用上划线来表示：<span class="arithmatex">\(45.07123123123123\ldots=45.07\overline{123}\)</span>。当数字大小在0和1之间，最好写出前面的0。0.123要比.123更好，因为最前的0可以提醒读者这是个小数否则只有小数点很容易被忽略。</p>
+<p>小数点左边的数字如果大于3位的话，通常要加逗号来增加可读性：<span class="arithmatex">\(1,332,443\)</span>。但是数字在1000和9999之间通常不加逗号。某些情况下，可以用空格来代替逗号：<span class="arithmatex">\(1\ 332\ 443\)</span>。</p>
+<p>并不是所有人都用句号来代表作小数点。有些国家用逗号来代替（例如：<span class="arithmatex">\(\pi \approx 3,14159\)</span>），且用句号来间隔3位以上的数字（例如：<span class="arithmatex">\(1.332.443\)</span>）。</p>
+<p>百分号的意思是“除以100”。下面数字其实都表示一个值，但是可以被写成不同的形式：<span class="arithmatex">\(\frac 1 4 \quad 0.25 \quad 25\%\)</span>。</p>
+<p>科学计数法常常用来表示实数，特别是一些很大或很少的数。例如：<span class="arithmatex">\(1.23\times 10^7 = 12,300,000\)</span> 和<span class="arithmatex">\(4.56\times 10^{-4}=0.000456\)</span>。在10的幂前面的数字通常要大于1且小于10。电脑程序使用科学计数法来表示数字时可能会用E或e来代替10的幂运算，像这样：
+$$
+\begin{align<em>}
+1.23\times 10^7 \quad &amp;1.23E07 \\
+4.56\times10^{-4} \quad &amp;4.56E-04
+\end{align</em>}
+$$</p>
+<hr/>
+<center> 第13页 </center>
+<p>工程符号是科学计数法的变体，10的指数一定要是3的倍数，像这样:
+$$
+\begin{align<em>}
+Scientific\ notation:\quad &amp;6.022\times 10^{23}\\
+Engineering\ notation:\quad &amp;602.2\times10^{21}
+\end{align</em>}
+$$
+对于工程符号，在10的幂前面的数字应该要大于1小于1000。</p>
+<p>有时候使用其它基数而不是10是很有用的。下面列出一些其它形式的计数法：</p>
+<ul>
+<li>基数在下标上用字母来代表，比如：<span class="arithmatex">\(14_{FIVE}\ or \ 0.202020_{THREE}\)</span>。</li>
+<li>基数在下标上用数字来表示，比如：<span class="arithmatex">\(1011_2\)</span>。</li>
+<li>在计算机领域，16进制是用<span class="arithmatex">\(0X\)</span>或<span class="arithmatex">\(0x\)</span>开头。例如：<span class="arithmatex">\(0X1A2B93\)</span>或<span class="arithmatex">\(0x1a2b93\)</span>。这里字母A到F分别代表数字10到15。</li>
+<li>在计算机领域，8进制是简单地用0开头。如<span class="arithmatex">\(0177\)</span>。</li>
+</ul>
+<p>有些实数可以用连分式来表示。例如：
+$$
+1+\cfrac{1}{2+\cfrac 1 {3+\cfrac 1 {4+ \cfrac 1{\cdots}}}}
+$$
+这种连分式也可用紧缩记法来表示，像这样：<span class="arithmatex">\(1+\frac 1 {2+} \frac 1{3+} \frac 1 {4+} \cdots\)</span>。这两个例子中，分子都是1，不过也可以是其它的。但是在分子都是1的情况下，连分式也可以表示成这样：<span class="arithmatex">\([1;2,3,4,\cdots]\)</span>。</p>
+<hr/>
+<p><strong>数字的注释。</strong> 实数<span class="arithmatex">\(x\)</span>的绝对值用<span class="arithmatex">\(|x|\)</span>表示。</p>
+<p>加减号<span class="arithmatex">\(\pm\)</span>通常用来指代两个不同的值。因此<span class="arithmatex">\(\pm 2\)</span>是指2和-2。这是很有用的速记方式，可以在一个公式中用来表示两个不同的正负值。例如，等式<span class="arithmatex">\(x^2-2x-2=0\)</span>的解是<span class="arithmatex">\(1\pm \sqrt{3}\)</span>。这意思是<span class="arithmatex">\(1+\sqrt{3}\)</span>和<span class="arithmatex">\(1-\sqrt{3}\)</span>都是等式的解。</p>
+<p>但在一个表达式中使用加减号<span class="arithmatex">\(\pm\)</span>两次则容易造成误解。试想一下<span class="arithmatex">\(\pm 1 \pm \sqrt{5}\)</span>。这也许表示<span class="arithmatex">\(1+\sqrt{5}\)</span>和<span class="arithmatex">\(-1-\sqrt{5}\)</span>这两个值，但也可以表示<span class="arithmatex">\(1-\sqrt{5}\)</span>和<span class="arithmatex">\(-1+\sqrt{5}\)</span>。真实想表达的意思得根据上下文进行推导。</p>
+<hr/>
+<center> 第14页 </center>
+<p>减加号<span class="arithmatex">\(\mp\)</span>表示的意思与<span class="arithmatex">\(\pm\)</span>是一样的。<span class="arithmatex">\(\mp\)</span>常常与<span class="arithmatex">\(\pm\)</span>联合使用，表示相反的符号。因此<span class="arithmatex">\(\pm3\mp\sqrt{7}\)</span>是指两个值：<span class="arithmatex">\(3-\sqrt{7}\)</span>t和<span class="arithmatex">\(3+\sqrt{7}\)</span>。</p>
+<p>等式符号<span class="arithmatex">\(=\)</span>有两种含义。一个是指两个值是相等的，就像<span class="arithmatex">\(3+4=7\)</span>。在定义一个对象的时候还有另一种意思，就像“假设<span class="arithmatex">\(x=1+\sqrt{5}\)</span>”。有些人在定义对象时用<span class="arithmatex">\(:=\)</span>来表示。此外，符号<span class="arithmatex">\(\triangleq\)</span>和<span class="arithmatex">\(\buildrel def \over {=}\)</span>也可以表示等式符号。</p>
+<h2 id="2">2. 实数的子集<a class="headerlink" href="#2" title="Permanent link">¶</a></h2>
+<p>整数是指小数点后没有任何数字的实数，其中小数点写不写是可选的。整个整数的集合用<span class="arithmatex">\({\Bbb Z}\)</span>表示：<span class="arithmatex">\({\Bbb Z}=\lbrace \cdots,-3,-2,-1,0,1,2,3,\cdots \rbrace\)</span>。</p>
+<p>名词<em>自然数</em>没有一个标准的定义。这里我们把<em>自然数</em>定义为非负数的整数。因此，<span class="arithmatex">\({\Bbb N}=\lbrace 0,1,2,3,\cdots \rbrace\)</span>。然而，有些数学家认为要把0给排除在外。</p>
+<p><em>有理数</em>是指可以被写成两个整数之比<span class="arithmatex">\(a/b\)</span>，且<span class="arithmatex">\(b\)</span>不为0的实数。有理数的集合用<span class="arithmatex">\({\Bbb R}\)</span>表示。也可以写成<span class="arithmatex">\({\Bbb Q}=\lbrace x \in {\Bbb R}:x=a/b\quad where\quad a,b \in {\Bbb Z}\quad and\quad b \neq 0 \rbrace\)</span>。</p>
+<p>这些集合的包含关系是这样的：<span class="arithmatex">\({\Bbb R} \supset {\Bbb Q}\supset {\Bbb Z} \supset {\Bbb N}\)</span>。</p>
+<p>在这些符号右上角加星号则有多种解释：</p>
+<ul>
+<li><span class="arithmatex">\({\Bbb R^*},{\Bbb C^*}\)</span>等表示相对应集合除去元素0的其它所有元素。注意：<span class="arithmatex">\({\Bbb C}\)</span>表示复数的集合（见4.4章节）。</li>
+<li><span class="arithmatex">\({\Bbb R^*},{\Bbb C^*}\)</span>等也可以表示集合的可逆元素。在整数情况下，<span class="arithmatex">\({\Bbb Z^*}\)</span>表示<span class="arithmatex">\(\lbrace-1,1\rbrace\)</span>。不过这种情况我们更倾向于用<span class="arithmatex">\({\Bbb Z^{\times}}\)</span>来表示。</li>
+<li><span class="arithmatex">\({\Bbb C^*}\)</span>有时用来表示<span class="arithmatex">\({\Bbb C} \cup \lbrace\infty\rbrace\)</span>，尽管我们推荐用<span class="arithmatex">\(\hat {\Bbb C}\)</span>或<span class="arithmatex">\(\overline {\Bbb C}\)</span>来表示。类似地，<span class="arithmatex">\({\Bbb R^*}\)</span>有时用来表示<span class="arithmatex">\({\Bbb R} \cup \lbrace-\infty,+\infty\rbrace\)</span>，但是我们推荐用<span class="arithmatex">\(\overline {\Bbb R}\)</span>。</li>
+</ul>
+<hr/>
+<center> 第15页 </center>
+<ul>
+<li><span class="arithmatex">\({\Bbb Z^*}\)</span>用来表示非负整数，<span class="arithmatex">\(\lbrace0,1,2,\cdots\rbrace\)</span>，但是我们更推荐用<span class="arithmatex">\({\Bbb N}\)</span>来表示。</li>
+<li>最后<span class="arithmatex">\({}^* {\Bbb R}\)</span>用来表示非标准实数，详细情况见第19页。</li>
+</ul>
+<p>在<span class="arithmatex">\({\Bbb R}\)</span>的上标或下标加上加号<span class="arithmatex">\(+\)</span>通常是表示正实数：<span class="arithmatex">\({\Bbb R^+}\)</span>或<span class="arithmatex">\({\Bbb R_+}\)</span>。然而有时候为了方便需要把0也包括进来，于是<span class="arithmatex">\({\Bbb R^n_+}\)</span>表示非负实数。类似地，<span class="arithmatex">\({\Bbb Q^+}\)</span>和<span class="arithmatex">\({\Bbb Z^+}\)</span>分别表示正的有理数和整数。</p>
+<p>实数的区间可以用开放或关闭的括号和中括号表示。括号表示区间不包括临界点，而中括号则表示区间包括临界点。下面列出几个例子：
+$$
+\begin{align<em>}
+[1,2]=\lbrace x \in {\Bbb R}:1 \leq x \leq 2\rbrace \\ 
+[1,2)=\lbrace x \in {\Bbb R}:1 \leq x &lt; 2\rbrace \\
+(1,2]=\lbrace x \in {\Bbb R}:1 &lt; x \leq 2\rbrace \\
+(1,2)=\lbrace x \in {\Bbb R}:1 &lt; x &lt; 2\rbrace \\
+\end{align</em>}
+$$
+　　有些人用反中括号表示不包括一个区间的临界点。例如[a,b[表示的意思和[a,b)是一样的，即<span class="arithmatex">\(\lbrace x:a \leq x &lt;b \rbrace\)</span>。类似地，]a,b]表示(a,b]，而]a,b[表示(a,b)。</p>
+<p>符号<span class="arithmatex">\(-\infty\)</span>和<span class="arithmatex">\(\infty\)</span>也会用来表示区间的临界点：<span class="arithmatex">\([1,\infty)=\lbrace x \in {\Bbb R}:x \geq 1\rbrace\)</span>和<span class="arithmatex">\((-\infty,2)=\lbrace x \in {\Bbb R}:x &lt; 2 \rbrace\)</span>。尽管表示所有的实数可以用<span class="arithmatex">\((-\infty,\infty)\)</span>表示，但是更简单明了的方式是用<span class="arithmatex">\({\Bbb R}\)</span>表示。</p>
+<h2 id="3">3. 常见的实数<a class="headerlink" href="#3" title="Permanent link">¶</a></h2>
+<p>有一些实数有它本身特殊的含义。这里列举出一些常见的：</p>
+<ul>
+<li><span class="arithmatex">\(e\)</span>，自然对数的底数。它的近似值是2.71828。</li>
+<li><span class="arithmatex">\(\pi\)</span>，圆周率。它的近似值是3.14159。</li>
+<li><span class="arithmatex">\(\gamma\)</span>，欧拉常数：<span class="arithmatex">\(\gamma = \lim_{n \to \infty}[\sum_{k=1}^{n} \frac 1 k - ln\ n]\)</span>。它的近似值是0.5772。</li>
+<li><span class="arithmatex">\(\phi\)</span>，黄金比例：<span class="arithmatex">\(\phi = (1+\sqrt{5})/2\)</span>。它的近似值是1.618。</li>
+</ul>
+<p>注意很多学科都保留了一些特定字母来表示常数，例如<span class="arithmatex">\(c\)</span>表示光速。</p>
+<hr/>
+<p><center> 第16页 </center></p>
+<h2 id="4">4. 复数<a class="headerlink" href="#4" title="Permanent link">¶</a></h2>
+<p>待续<span class="arithmatex">\(\cdots\)</span></p>
+<hr/>
+<center> 第17页 </center>
+<h2 id="5">5. 基础运算符<a class="headerlink" href="#5" title="Permanent link">¶</a></h2>
+<p>两个数<span class="arithmatex">\(a\)</span>与<span class="arithmatex">\(b\)</span>之和可以表示为<span class="arithmatex">\(a+b\)</span>，差值可以表示为<span class="arithmatex">\(a-b\)</span>。</p>
+<p>乘法则有多种表示方法。如果数字是用字母代替，那么<span class="arithmatex">\(ab\)</span>则是最常用的方式。如果是一个数字和一个字母的乘积，那么数字一般写在字母前面，比如<span class="arithmatex">\(3x\)</span>。两个数字的乘法则用<span class="arithmatex">\(\cdot\)</span>或<span class="arithmatex">\(\times\)</span>作为操作符：<span class="arithmatex">\(5 \cdot 7\)</span>或 <span class="arithmatex">\(8 \times 11\)</span>。由于<span class="arithmatex">\(\cdot\)</span>或<span class="arithmatex">\(\times\)</span>都不是标准键盘上的字符，有一些人（特别是一些编程语言）则用星号来表示乘法：<span class="arithmatex">\(3 * 5\)</span>。</p>
+<p>除法可以用这些方式来表示：<span class="arithmatex">\(a \div b, a/b\)</span>或$ \frac a b$。大家可以选择一个最易读懂的符号。</p>
+<p>指数则用上标来表示：<span class="arithmatex">\(a^b\)</span>。然而，有时候也用<span class="arithmatex">\(\wedge\)</span>或<span class="arithmatex">\(**\)</span>来表示。</p>
+<p>关于累加<span class="arithmatex">\(\sum\)</span>和累积<span class="arithmatex">\(\prod\)</span>的讨论见第8页。</p>
+<h2 id="6">6. 其它的表示体系<a class="headerlink" href="#6" title="Permanent link">¶</a></h2>
+<p>在工程和科学应用中，数学家也会使用很多其它数字体系。这里我们列出一些常见的体系。</p>
+<ul>
+<li>
+<p><strong>分子序。</strong>对一个整数<span class="arithmatex">\(n\geq 2\)</span>，我们用<span class="arithmatex">\({\Bbb Z_n}\)</span>表示集合<span class="arithmatex">\(\lbrace 0,1,\cdots,n-1 \rbrace\)</span></p>
+</li>
+<li>
+<p><strong>有限域。</strong>一个有<span class="arithmatex">\(n\)</span>个元素的有限域可以写成GF(n)或<span class="arithmatex">\({\Bbb F_n}\)</span>。众所周知，一个有限域的大小一定要是素数的指数，所以有限域最有可能像这样：<span class="arithmatex">\(GF(p^a)\)</span>或<span class="arithmatex">\({\Bbb F_{p^a}}\)</span>。</p>
+</li>
+</ul>
+<hr/>
+<center> 第18页 </center>
+<ul>
+<li><strong>高斯整数</strong>。<em>高斯整数</em>表现形式为<span class="arithmatex">\(a+bi\)</span>，实数和虚数部分都是整数的复数。高斯整数的集合用<span class="arithmatex">\({\Bbb Z[i]}\)</span>表示。</li>
+<li><strong>四元数。</strong>哈密顿发现的<em>四元数</em>的表现形式是<span class="arithmatex">\(a+bi+cj+dk\)</span>，其中<span class="arithmatex">\(a,b,c,d \in {\Bbb R}\)</span>，且i,j,k有下面的特性：</li>
+</ul>
+<div class="arithmatex">\[
+\begin{align*}i^2=1 \qquad &amp;ij=k \qquad ik=-j \\\\j^2=-1 \qquad &amp;ij=k \qquad ik=-j \\\\j^2=-1 \qquad &amp;ij=k \qquad ik=-j \\\\\end{align*}
+\]</div>
+<p>整个四元数的集合用<span class="arithmatex">\({\Bbb H}\)</span>表示。注意元素间的乘法在<span class="arithmatex">\({\Bbb H}\)</span>中是不能相互交换的。</p>
+<ul>
+<li><strong>外延。</strong>上面我们提到高斯整数用<span class="arithmatex">\({\Bbb Z[i]}\)</span>表示。这个注释意思是我们整合了整数集<span class="arithmatex">\({\Bbb Z}\)</span>和虚数<span class="arithmatex">\(i\)</span>，用加减乘方法构建了所有可能的数。</li>
+</ul>
+<h2 id="7">7. 无限<a class="headerlink" href="#7" title="Permanent link">¶</a></h2>
+<p>我们把无限的概念扩展到实数或复数体系中是非常有用的。</p>
+<p>在实数领域中，<span class="arithmatex">\(\overline {\Bbb R}\)</span>表示<em>扩展的实数</em>集合，它还包括了无限值<span class="arithmatex">\(+\infty\)</span>和<span class="arithmatex">\(-\infty\)</span>。</p>
+<p>对于复数来说，<span class="arithmatex">\(\hat {\Bbb C}\)</span>或<span class="arithmatex">\(\overline {\Bbb C}\)</span>表示<em>扩展的复数</em>集合，也被称为黎曼球面，它还额外包括无限值<span class="arithmatex">\(\infty\)</span>。这个体系有时也简单地用<span class="arithmatex">\({\Bbb C} \cup \lbrace\infty\rbrace\)</span>表示。有些作者也写成<span class="arithmatex">\({\Bbb C^*}\)</span>，不过这种符号更合适被用来表示集合<span class="arithmatex">\({\Bbb C}-\lbrace0\rbrace\)</span>。</p>
+<p><span class="arithmatex">\({}^* {\Bbb R}\)</span>是一个奇怪的实数扩展，表示<em>非标准实数</em>，包括了无穷小和超整数。</p>
+<hr/>
+<center> 第19页 </center>
+<p>我们在第7页中谈过，假定一个集合A，符号|A|表示集合A的势。 对一个有限元素的集合来说，这是一个整数。但是对于无限的集合来说，我们有特别的表示方法。</p>
+<p>符号<span class="arithmatex">\(\aleph_0\)</span>用来表示整数集合的势：<span class="arithmatex">\(\aleph_0 = |{\Bbb Z}|\)</span>。它是最小的超限数。符号<span class="arithmatex">\({\aleph}\)</span>是希伯来语字母<em>aleph</em>，符号<span class="arithmatex">\(\aleph_0\)</span>可以读作"aleph null" 或"aleph naught"。势为<span class="arithmatex">\(\aleph_0\)</span>的集合也被称为<em>可数的</em>。</p>
+<p>实数的势<span class="arithmatex">\(|{\Bbb R}|\)</span>可以用<span class="arithmatex">\(c\)</span>表示。<span class="arithmatex">\(c\)</span>的数量也被称为<em>连续统的势</em>。</p>
+<hr/>
+<center> 第20页 </center>
+            
+
+
+
+
+
+
+        </div>
+    </div>
+    </article>
+                    </div>
+                    <div class="span1"></div>
+                </div>
+            </div>
+        </div>
+<footer>
+
+
+
+
+    <div id="fpowered">
+        Powered by: <a href="http://getpelican.com/" title="Pelican Home Page" target="_blank" rel="nofollow noopener noreferrer">Pelican</a>
+        Theme: <a href="https://elegant.oncrashreboot.com/" title="Theme Elegant Home Page" target="_blank" rel="nofollow noopener noreferrer">Elegant</a>
+    </div>
+</footer>            <script src="//code.jquery.com/jquery.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+
+    <script>
+        (function () {
+            function setupTocFollow() {
+                var tocNav = document.querySelector('.table-of-content nav');
+                var tocCol = document.querySelector('.table-of-content');
+                if (!tocNav || !tocCol) {
+                    return;
+                }
+
+                var desktop = window.innerWidth > 979;
+                if (!desktop) {
+                    tocNav.classList.remove('toc-follow-fixed');
+                    tocNav.style.width = '';
+                    tocNav.style.left = '';
+                    return;
+                }
+
+                var topOffset = 72;
+                var navStartY = tocCol.getBoundingClientRect().top + window.pageYOffset;
+
+                function updateFixedState() {
+                    var shouldFix = window.pageYOffset >= (navStartY - topOffset);
+                    if (shouldFix) {
+                        var rect = tocCol.getBoundingClientRect();
+                        tocNav.classList.add('toc-follow-fixed');
+                        tocNav.style.left = rect.left + 'px';
+                        tocNav.style.width = rect.width + 'px';
+                    } else {
+                        tocNav.classList.remove('toc-follow-fixed');
+                        tocNav.style.left = '';
+                        tocNav.style.width = '';
+                    }
+                }
+
+                updateFixedState();
+                window.addEventListener('scroll', updateFixedState, { passive: true });
+                window.addEventListener('resize', function () {
+                    tocNav.classList.remove('toc-follow-fixed');
+                    tocNav.style.left = '';
+                    tocNav.style.width = '';
+                    setupTocFollow();
+                });
+            }
+
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', setupTocFollow);
+            } else {
+                setupTocFollow();
+            }
+        })();
+    </script>
+    <script>
+    (function () {
+        if (window.location.hash.match(/^#comment-\d+$/)) {
+            $('#comment_thread').collapse('show');
+        }
+    })();
+    window.onhashchange=function(){
+        if (window.location.hash.match(/^#comment-\d+$/))
+            window.location.reload(true);
+    }
+    $('#comment_thread').on('shown', function () {
+        var link = document.getElementById('comment-accordion-toggle');
+        var old_innerHTML = link.innerHTML;
+        $(link).fadeOut(200, function() {
+            $(this).text('Click here to hide comments').fadeIn(200);
+        });
+        $('#comment_thread').on('hidden', function () {
+            $(link).fadeOut(200, function() {
+                $(this).text(old_innerHTML).fadeIn(200);
+            });
+        })
+    })
+</script>
+
+    </body>
+    <!-- Theme: Elegant built for Pelican
+        License : MIT -->
+</html>

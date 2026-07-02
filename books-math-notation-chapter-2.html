@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Feng Zhang" />
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+
+<meta property="og:title" content="合集 "/>
+<meta property="og:url" content="https://bioinfo.host/books-math-notation-chapter-2.html" />
+<meta property="og:description" content="数学符号手册，翻译至Mathematical Notation by Edward R. Scheinerman。如何表示合集。" />
+<meta property="og:site_name" content="章峰的网站" />
+<meta property="og:article:author" content="Feng Zhang" />
+<meta property="og:article:published_time" content="2020-09-03T00:00:00+08:00" />
+<meta property="og:article:modified_time" content="2026-07-01T19:30:00+08:00" />
+<meta name="twitter:title" content="合集 ">
+<meta name="twitter:description" content="数学符号手册，翻译至Mathematical Notation by Edward R. Scheinerman。如何表示合集。">
+<meta property="og:image" content="https://bioinfo.host/pages/home/bio-banner1.jpg" />
+<meta name="twitter:image" content="https://bioinfo.host/pages/home/bio-banner1.jpg" >
+
+        <title>合集  · 章峰的网站
+</title>
+        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="https://bioinfo.host/theme/css/elegant.prod.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="https://bioinfo.host/theme/css/custom.css" media="screen">
+
+<style>
+    .article-meta-bottom {
+        margin-top: 6px;
+        font-size: 13px;
+        color: #666;
+    }
+
+    .article-meta-inline {
+        display: inline;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    .article-meta-inline > li {
+        display: inline;
+        margin: 0;
+        line-height: 1.8;
+    }
+
+    .article-meta-inline > li + li::before {
+        content: "|";
+        margin: 0 8px;
+        color: #bbb;
+    }
+
+    .article-meta-inline .meta-label {
+        font-weight: 600;
+        margin-right: 4px;
+    }
+
+    .article-meta-inline .tags-in-article {
+        display: inline;
+        margin: 0;
+        padding: 0;
+    }
+
+    .article-meta-inline .tags-in-article li {
+        display: inline;
+    }
+
+    .table-of-content nav {
+        position: sticky;
+        top: 72px;
+        max-height: calc(100vh - 88px);
+        overflow-y: auto;
+        padding-right: 6px;
+    }
+
+    .table-of-content nav.toc-follow-fixed {
+        position: fixed;
+        top: 72px;
+        z-index: 10;
+    }
+
+    @media (max-width: 979px) {
+        .table-of-content nav {
+            position: static;
+            top: auto;
+            max-height: none;
+            overflow: visible;
+            padding-right: 0;
+        }
+    }
+</style>
+        <link href="https://bioinfo.host/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="章峰的网站 - Full Atom Feed" />
+
+
+        <script>
+            MathJax = {
+                tex: {
+                    inlineMath: [['$', '$'], ['\\(', '\\)']],
+                    displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                    processEscapes: true
+                }
+            };
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.min.js" async></script>
+    </head>
+    <body>
+        <div id="content">
+            <div class="navbar navbar-static-top">
+                <div class="navbar-inner">
+                    <div class="container-fluid">
+                        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </a>
+                        <a class="brand" href="https://bioinfo.host/"><span class=site-name>章峰的网站</span></a>
+                        <div class="nav-collapse collapse">
+                            <ul class="nav pull-right top-menu">
+                                <li >
+                                    <a href=
+                                       https://bioinfo.host
+                                    >首页</a>
+                                </li>
+                                <li ><a href="https://bioinfo.host/categories.html">博客</a></li>
+                                <li ><a href="https://bioinfo.host/books.html">教程</a></li>
+                                <li ><a href="https://bioinfo.host/tags.html">标签</a></li>
+                                <li ><a href="https://bioinfo.host/archives.html">归档</a></li>
+                                <li ><a href="https://bioinfo.host/pages/landing-page-about-hidden-en.html">个人简介</a></li>
+                                <li><form class="navbar-search" action="https://bioinfo.host/search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="搜索" name="q" id="tipue_search_input"></form></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid">
+                <div class="row-fluid">
+                    <div class="span1"></div>
+                    <div class="span10">
+<article>
+<div class="row-fluid">
+    <header class="page-header span10 offset2">
+    <h1><a href="https://bioinfo.host/books-math-notation-chapter-2.html"> 合集  </a></h1>
+        <div class="article-meta-bottom">
+        <ul class="article-meta-inline">
+        <li><span class="meta-label">Published:</span><time itemprop="dateCreated" datetime="2020-09-03T00:00:00+08:00">2020年09月03日</time></li>
+
+        <li><span class="meta-label">Last Updated:</span><time datetime="2026-07-01T19:30:00+08:00">2026年07月01日</time></li>
+
+        <li><span class="meta-label">Category:</span><a class="category-link" href="https://bioinfo.host/categories.html#books-ref">Books</a></li>
+
+
+        </ul>
+        </div>
+    </header>
+</div>
+
+<div class="row-fluid">
+    <div class="span2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div class="toc">
+<ul>
+<li><a href="#1">1. 集合</a></li>
+<li><a href="#2">2. 列表</a></li>
+<li><a href="#3">3. 累加和累乘等</a></li>
+</ul>
+</div>
+        </nav>
+    </div>
+    <div class="span8 article-content">
+
+            
+<h2 id="1">1. 集合<a class="headerlink" href="#1" title="Permanent link">¶</a></h2>
+<p>集合是指一个或多个无序的且不重复的对象组成的整体。最简单的方法来指明一个集合是用花括号括起所有对象，比如：<span class="arithmatex">\(\lbrace 1,2,7\rbrace\)</span>。这个集合由3个元素组成，数字1、2和7。元素的顺序和重复是不重要的，所以<span class="arithmatex">\(\lbrace 2, 1, 7 \rbrace\)</span>和 <span class="arithmatex">\(\lbrace 7,1,1,2\rbrace\)</span>是同一个集合且只有3个元素。 </p>
+<p>集合中的成员用符号<span class="arithmatex">\(\in\)</span>来表示“属于”。这个符号看起来跟希腊字母epsilon (<span class="arithmatex">\(\epsilon\)</span>)很像，但实际上是不同的。因此<span class="arithmatex">\(x \in A\)</span>是表明元素<span class="arithmatex">\(x\)</span>是集合<span class="arithmatex">\(A\)</span>的成员。例如：<span class="arithmatex">\(2 \in \lbrace 1,2,7\rbrace\)</span>。符号<span class="arithmatex">\(\notin\)</span>表示不属于，就像<span class="arithmatex">\(2 \notin \lbrace1,2,7\rbrace\)</span>。当符号<span class="arithmatex">\(\in\)</span>反向写<span class="arithmatex">\(\ni\)</span>表示“包含”，比如<span class="arithmatex">\(A \ni x\)</span>。这和<span class="arithmatex">\(x \in A\)</span>是一个意思。例如<span class="arithmatex">\(\lbrace1,2,7\rbrace \ni 7\)</span>。</p>
+<p>集合不包括任何元素被称为空集或零集。我们可以用符号<span class="arithmatex">\(\emptyset\)</span>或<span class="arithmatex">\(\varnothing\)</span>，或空的花括号<span class="arithmatex">\(\lbrace \rbrace\)</span>表示。这些符号中<span class="arithmatex">\(\varnothing\)</span> 表达的是最清楚的。</p>
+<p>大集合很可能用少量元素加代表类似模式的省略号（<span class="arithmatex">\(\ldots\)</span>）来表示。这对于表示有固定模式的无限集合和有限集合都很浅显易懂。比如：<span class="arithmatex">\(\lbrace1,2,3,\ldots,100\rbrace\)</span>很明确地表示整数1到100，而<span class="arithmatex">\(\lbrace2,4,6,\ldots\rbrace\)</span>则表示大于0的偶数集合。</p>
+<p>然而，一个更准确的描述集合的方法是使用集合建构式符号（set builder notation）。这种注释格式是这样的：<span class="arithmatex">\(\lbrace x\in \Bbb Z:1 \leq x \leq 100 \rbrace\)</span>。这个字母<span class="arithmatex">\(x\)</span>是一个虚拟变量，它是用来代表这个集合的元素的名称。接着<span class="arithmatex">\(\in \Bbb Z\)</span>意思是这个集合的元素来自正整数。然后用冒号间隔，后面接一个条件，它告诉我们哪些正整数在这个集合里。在这个例子中，它们是1到100的正整数。</p>
+<p>有时候冒号会用竖线<span class="arithmatex">\(|\)</span>代替，比如<span class="arithmatex">\(\lbrace u \in \Bbb Z | u \geq 100\rbrace\)</span>，这表示集合是大于100的正整数。</p>
+<hr/>
+<center> 第5页 </center>
+<p>冒号后面的条件也可以用词语表示。比如<span class="arithmatex">\(\lbrace a \in \Bbb Z: a能被5整除\rbrace\)</span>，这代表集合<span class="arithmatex">\(\lbrace\ldots,-15,-10,-5,0,5,10,15,\ldots\rbrace\)</span>。</p>
+<p>如果上下文清晰，集合建构式符号是可以省略冒号的左边。<span class="arithmatex">\(\lbrace n:n&gt;5\rbrace\)</span>，这个表达的就不清楚，它是指所有大于5的实数还是指大于5的正整数呢？</p>
+<p>当然冒号左边也可以更复杂的表达式。比如<span class="arithmatex">\(\lbrace(x,y):x+y=5\rbrace\)</span>代表了一个集合对，它包括元素<span class="arithmatex">\((2,3)\)</span>但是不包括<span class="arithmatex">\((4,4)\)</span>。</p>
+<p>此外，集合中有多种多样的关系和操作符，这里列举一些最常见的：</p>
+<ul>
+<li>
+<p><strong>集合相等</strong>。如果有集合集合<span class="arithmatex">\(A\)</span>和集合<span class="arithmatex">\(B\)</span>，<span class="arithmatex">\(A=B\)</span>意味着集合<span class="arithmatex">\(A\)</span>和<span class="arithmatex">\(B\)</span>有相同的元素。</p>
+</li>
+<li>
+<p><strong>子集</strong>。如果有集合<span class="arithmatex">\(A\)</span>和集合<span class="arithmatex">\(B\)</span>，<span class="arithmatex">\(A \subseteq B\)</span>意思是每个属于A的元素也是集合B的元素。有些书中可能会简单地写<span class="arithmatex">\(A \subset B\)</span>。这个意思是A是B的子集但是不相等。<span class="arithmatex">\(\subset / \subseteq\)</span>和<span class="arithmatex">\(&lt;/\leq\)</span>是比较类似的意思，但是在集合中不用小于号。此外，注意<span class="arithmatex">\(A \subseteq B\)</span>与<span class="arithmatex">\(A\in B\)</span>表达的并不是同一个事。</p>
+</li>
+<li>
+<p><strong>超集</strong>。<span class="arithmatex">\(A \supseteq B\)</span>就是<span class="arithmatex">\(B \subseteq A\)</span>。也就是说A的元素包含了B的元素。</p>
+</li>
+<li>
+<p><strong>并集</strong>。如果有集合<span class="arithmatex">\(A\)</span>和集合<span class="arithmatex">\(B\)</span>，<span class="arithmatex">\(A \bigcup B\)</span>表示元素属于A或B或两者共有。例如<span class="arithmatex">\(\lbrace1,2,3\rbrace\bigcup \lbrace2,4,6\rbrace=\lbrace1,2,3,4,6\rbrace\)</span>。有很多种方式表示两个集合不相交。常见的有<span class="arithmatex">\(+,\bigoplus,\biguplus\)</span>。不相交这个注释表达了两层意思。首先两个集合不相交，即没有元素同时属于两个集合。第二，它是集合的并集。比如，<span class="arithmatex">\(A_1 \biguplus A_2 \biguplus \ldots \biguplus A_n =B\)</span>，这表示1）对于所有<span class="arithmatex">\(i\neq j\)</span>时<span class="arithmatex">\(A_i \cap A_j = \emptyset\)</span>，2）集合$A_1,A_2,\ldots,A_n <span class="arithmatex">\(的并集是\)</span>B$。</p>
+</li>
+<li>
+<p><strong>交集</strong>。如果有集合<span class="arithmatex">\(A\)</span>和集合<span class="arithmatex">\(B\)</span>，<span class="arithmatex">\(A \bigcap B\)</span>表示一个集合，它的元素同时属于<span class="arithmatex">\(A\)</span>和<span class="arithmatex">\(B\)</span>。例如<span class="arithmatex">\(\lbrace 1,2,3 \rbrace \bigcap \lbrace 2,4,6 \rbrace = \lbrace 2 \rbrace\)</span>。</p>
+</li>
+</ul>
+<hr/>
+<center> 第6页 </center>
+<ul>
+<li>
+<p><strong>差集</strong>。如果有集合<span class="arithmatex">\(A\)</span>和集合<span class="arithmatex">\(B\)</span>，<span class="arithmatex">\(A-B\)</span>则表示这个集合的所有元素属于A但是不属于B。例如<span class="arithmatex">\(\lbrace 1,2,3 \rbrace - \lbrace 2,4,6 \rbrace = \lbrace 1,3 \rbrace\)</span>。有人也会用<span class="arithmatex">\(A \setminus B\)</span>来表示并集，与普通的减号区分开。</p>
+</li>
+<li>
+<p><strong>补集</strong>。集合<span class="arithmatex">\(A\)</span>的补集写成<span class="arithmatex">\(\overline A\)</span>。它表示一个集合，且其元素不属于<span class="arithmatex">\(A\)</span>。我们要根据上下文来理解这个注释。例如：如果谈论整数，<span class="arithmatex">\(X\)</span>表示奇数集合，那么<span class="arithmatex">\(\overline X\)</span>表示偶数集合，而不是表示除奇数外的所有实数或复数。通常，最好用<span class="arithmatex">\(\Bbb Z - X\)</span>来表示<span class="arithmatex">\(X\)</span>以外的集合。</p>
+</li>
+<li>
+<p><strong>对称差</strong>。如果有集合<span class="arithmatex">\(A\)</span>和集合<span class="arithmatex">\(B\)</span>，<span class="arithmatex">\(A \triangle B\)</span>表示一个集合且它的元素属于<span class="arithmatex">\(A\)</span>或<span class="arithmatex">\(B\)</span>但不属于它们俩共有的。例如<span class="arithmatex">\(\lbrace 1,2,3 \rbrace \triangle \lbrace 2,4,6 \rbrace = \lbrace 1,3,4,6 \rbrace\)</span>。我们可知<span class="arithmatex">\(A \triangle B = (A \bigcup B)-(A \bigcap B)=(A-B) \bigcup (B-A)\)</span>。</p>
+</li>
+<li>
+<p><strong>势</strong>。如果<span class="arithmatex">\(A\)</span>是一个集合，那么<span class="arithmatex">\(|A|\)</span>表示<span class="arithmatex">\(A\)</span>的元素个数，有时也会用#<span class="arithmatex">\(A\)</span>来表示。例如，如果集合<span class="arithmatex">\(A = \lbrace 1,2,4 \rbrace\)</span>，那么<span class="arithmatex">\(|A|=3\)</span>。</p>
+</li>
+<li>
+<p><strong>笛卡尔乘积</strong>。集合<span class="arithmatex">\(A\)</span>和集合<span class="arithmatex">\(B\)</span>的笛卡尔乘积为<span class="arithmatex">\(A \times B = \lbrace (a,b):a \in A,b\in B \rbrace\)</span>。例如<span class="arithmatex">\(\lbrace 1,2,3 \rbrace \times \lbrace 3,4 \rbrace = \lbrace (1,3),(1,4),(2,3),(2,4),(3,3),(3,4) \rbrace\)</span>。符号<span class="arithmatex">\(A^2\)</span>表示<span class="arithmatex">\(A \times A\)</span>，即所有的有序元素对<span class="arithmatex">\((x,y)\)</span>，其中<span class="arithmatex">\(x,y \in A\)</span>。当<span class="arithmatex">\(n\)</span>是正整数时，<span class="arithmatex">\(A^n\)</span>则表示一个集合，它的每个元素是长度为n的有序<strong>列表</strong>。</p>
+</li>
+<li>
+<p><strong>幂集</strong>。集合<span class="arithmatex">\(A\)</span>的幂集是指元素为A的所有子集的集合。通常用<span class="arithmatex">\(2^A\)</span>或<span class="arithmatex">\(\mathcal P(A)\)</span>。例如，如果<span class="arithmatex">\(A=\lbrace 1,2,3 \rbrace\)</span>，那么<span class="arithmatex">\(\mathcal P(A)=2^A=\left \lbrace \lbrace 1,2,3 \rbrace,\lbrace 1,2\rbrace,\lbrace 1,3 \rbrace,\lbrace 2,3 \rbrace,\lbrace 1 \rbrace,\lbrace 2 \rbrace,\lbrace 3 \rbrace,\emptyset \right \rbrace\)</span>。</p>
+</li>
+<li>
+<p><strong>设定幂</strong>。如果有集合<span class="arithmatex">\(A\)</span>和集合<span class="arithmatex">\(B\)</span>，<span class="arithmatex">\(B^A\)</span>表示一个集合，且它的元素是从A到B的所有函数（这个没看明白什么意思？），即<span class="arithmatex">\(B^A = \lbrace f | f:A \to B\rbrace\)</span>。第25页有它的扩展<span class="arithmatex">\(f:A \to B\)</span>。这个如果集合<span class="arithmatex">\(A\)</span>和集合<span class="arithmatex">\(B\)</span>是有限的，那么<span class="arithmatex">\(|A|=a\)</span>和<span class="arithmatex">\(|B|=b\)</span>，那么有<span class="arithmatex">\(b^a\)</span>个函数从A到B，<span class="arithmatex">\(|B^A|=|B|^{|A|}\)</span>。</p>
+</li>
+</ul>
+<hr/>
+<center> 第7页 </center>
+<ul>
+<li><strong>最大值和最小值</strong>。如果集合A是一个实数集合，那么max A表示集合A中最大的那个元素，min A则表示集合A中最小的那个元素。一般用楔形和V形符号来表示，如$x \wedge y = max \lbrace x,y \rbrace <span class="arithmatex">\(和\)</span>x \vee y = min \lbrace x,y \rbrace$。不过并不是所有的集合都一定有最大值和最小值。与之相关的概念是上确界和下确界，分别用sup A和inf A来表示。</li>
+</ul>
+<h2 id="2">2. 列表<a class="headerlink" href="#2" title="Permanent link">¶</a></h2>
+<p>数学领域中，列表是指一个有序的对象集，对象的重复是有意义的。列表通常是用括号括起来，尽管有时候会使用中括号。例如<span class="arithmatex">\((1,2,2,3)\)</span>是一个列表。而列表<span class="arithmatex">\((1,2,2,3), (1,2,3)\)</span>和<span class="arithmatex">\((2,1,2,3)\)</span>是三个不同的东西，因为这三个列表的元素顺序和个数是不同的。</p>
+<p>一个有n个元素的列表有时也被称为一个n元组。</p>
+<p>当我们用<span class="arithmatex">\(a\)</span>来指代一个列表，那么列表的元素通常被命名为<span class="arithmatex">\(a_1,a_2\)</span>等等。</p>
+<h2 id="3">3. 累加和累乘等<a class="headerlink" href="#3" title="Permanent link">¶</a></h2>
+<p>符号<span class="arithmatex">\(\sum\)</span>和<span class="arithmatex">\(\prod\)</span>的意思分别是累加和累乘。典型的累加注释有这样的格式：<span class="arithmatex">\(\sum_{j=start}^{stop} {expression\ involving\ j}\)</span>。这里<span class="arithmatex">\(j\)</span>是一个虚拟变量。比如：<span class="arithmatex">\(\sum_{j=1}^5{x^j}=x^1+x^2+x^3+x^4+x^5\)</span>。如果累加的目标是无限大，这意味着这个累加会一直持续下去没有尽头：<span class="arithmatex">\(\sum_{n=0}^{\infty}{\frac{1}{2^n}}=1+\frac 1 2 +\frac 1 4+\frac 1 8 +\frac 1 {16}+\ldots\)</span>。</p>
+<p>符号<span class="arithmatex">\(\prod\)</span>与<span class="arithmatex">\(\sum\)</span>类似，不同的是运算符是乘法。例如<span class="arithmatex">\(\prod_{j=0}^5(2j+1)=1\times 3\times 5\times 7\times 9\times 11\)</span>。</p>
+<hr/>
+<center> 第8页 </center>
+<p>上面的例子中，下标（虚拟变量）是连续不间断的正整数。但是如果我们希望累加的下标是其它形式的怎么办？例如，当<span class="arithmatex">\(A\)</span>是集合<span class="arithmatex">\(\lbrace 1,5,6,22 \rbrace\)</span>，然后<span class="arithmatex">\(\sum_{t \in A}{t^2}=1^2+5^2+6^2+22^2\)</span>。</p>
+<p>当然，下标也可以是简单的英文描述。例如：</p>
+<div class="arithmatex">\[
+\begin{smallmatrix}\prod_{p\ prime}{(1-\frac{1}{p})}=(1-\frac 1 2)\times(1-\frac 1 3)\times(1-\frac 1 5) \times(1-\frac 1 7)\times(1-\frac 1 {11})\times {\cdots}\end{smallmatrix}
+\]</div>
+<p>有时候累加表达式可能不会显式地展示出上下标，即没有虚拟变量和上下限。这种情况下，通常重复的那个变量是上标或下标。比如说，你看出这样的表达式：<span class="arithmatex">\(\sum{\binom{n}{k}}x^k\)</span>，那么<span class="arithmatex">\(k\)</span>很可能是下标。我们得根据上下文推测<span class="arithmatex">\(k\)</span>的范围。在这个例子中，由于二项式<span class="arithmatex">\(\binom{n}{k}\)</span>的定义，那么<span class="arithmatex">\(k \geq 0\)</span>，如果<span class="arithmatex">\(k &gt;n\)</span>的话整个二项式为0，所以可以得出<span class="arithmatex">\(k\)</span>的范围是从0到<span class="arithmatex">\(n\)</span>。通常，如果没有显式地标出上下限，那么默认要穷尽所有的范围。例如，当A是一个<span class="arithmatex">\(n\times m\)</span>的矩阵，B是一个<span class="arithmatex">\(m\times p\)</span>的矩阵，那么<span class="arithmatex">\(\sum{a_{i,j}}{b_{j,k}}\)</span>意味着虚拟变量<span class="arithmatex">\(j=1,2,3,\ldots,m\)</span>。</p>
+<p>在某些情况下，如使用爱因斯坦求和约定时，为了方便，写累加表达式的时候会省略<span class="arithmatex">\(\sum\)</span>符号。任何情况下上下标的虚拟变量被重复使用时，我们要对那个变量进行累加。例如，表达式<span class="arithmatex">\(a_{i,j}b_j\)</span>的意思是<span class="arithmatex">\(\sum_j{a_{i,j}}b_j\)</span>，我们需要在<span class="arithmatex">\(j\)</span>的取值范围内进行累加。</p>
+<p>按照这种约定，当A是一个方阵时，那么<span class="arithmatex">\(a_{i,i}\)</span>指的是矩阵A的迹，即对角线上所有元素之和。对于合适的矩阵A和B，<span class="arithmatex">\(a_{i,j}b_{j,k}\)</span>是指<span class="arithmatex">\(AB\)</span>的第<span class="arithmatex">\(i\)</span>行第<span class="arithmatex">\(k\)</span>列的元素。</p>
+<p>其它运算符也会使用类似于<span class="arithmatex">\(\sum\)</span>和的注释。例如，当<span class="arithmatex">\(A_1,A_2,A3,\ldots\)</span>是集合时，它们的并集可以写成：<span class="arithmatex">\(\bigcup_{i=1}^{\infty}A_i\)</span>，这是指<span class="arithmatex">\(A_1 \bigcup A_2\bigcup A_3\bigcup \ldots\)</span>。当然<span class="arithmatex">\(\bigcap_{i=1}^{\infty}\)</span>是指它们的交集。</p>
+<hr/>
+<center> 第9页 </center>
+<p>如果操作符太多的话，一般都会写成虚拟变量的形式。例如，当<span class="arithmatex">\(p_1,p_2,\ldots,p_n\)</span>是逻辑值(真或假)时，<span class="arithmatex">\(\wedge_{i=1}^n{p_i}\)</span>是指<span class="arithmatex">\(p_1 \wedge p_2 \wedge \ldots \wedge p_n\)</span>。</p>
+<hr/>
+<center> 第10页 </center>
+            
+
+
+
+
+
+
+<section>
+    <h6 style="display:none;">Comments</h6>
+    <p id="comment-message">欢迎留言，使用 GitHub 账号登录即可评论。 </p>
+
+    <div class="accordion" id="accordion2">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                <a class="accordion-toggle disqus-comment-count comment-count"
+                   data-toggle="collapse"
+                   data-parent="#accordion2"
+                   href="https://bioinfo.host/books-math-notation-chapter-2.html#comment_thread"
+                   id="comment-accordion-toggle">
+                    Comments
+                </a>
+            </div>
+            <div id="comment_thread" class="accordion-body collapse">
+                <div class="accordion-inner">
+                    <div class="comments">
+
+                        <script src="https://utteranc.es/client.js"
+        data-repo="Feng-Zhang/blog-pelican-comment"
+        data-issue-term="https://bioinfo.host/books-math-notation-chapter-2.html"
+        data-label=""
+        data-theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+        </div>
+    </div>
+    </article>
+                    </div>
+                    <div class="span1"></div>
+                </div>
+            </div>
+        </div>
+<footer>
+
+
+
+
+    <div id="fpowered">
+        Powered by: <a href="http://getpelican.com/" title="Pelican Home Page" target="_blank" rel="nofollow noopener noreferrer">Pelican</a>
+        Theme: <a href="https://elegant.oncrashreboot.com/" title="Theme Elegant Home Page" target="_blank" rel="nofollow noopener noreferrer">Elegant</a>
+    </div>
+</footer>            <script src="//code.jquery.com/jquery.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+
+    <script>
+        (function () {
+            function setupTocFollow() {
+                var tocNav = document.querySelector('.table-of-content nav');
+                var tocCol = document.querySelector('.table-of-content');
+                if (!tocNav || !tocCol) {
+                    return;
+                }
+
+                var desktop = window.innerWidth > 979;
+                if (!desktop) {
+                    tocNav.classList.remove('toc-follow-fixed');
+                    tocNav.style.width = '';
+                    tocNav.style.left = '';
+                    return;
+                }
+
+                var topOffset = 72;
+                var navStartY = tocCol.getBoundingClientRect().top + window.pageYOffset;
+
+                function updateFixedState() {
+                    var shouldFix = window.pageYOffset >= (navStartY - topOffset);
+                    if (shouldFix) {
+                        var rect = tocCol.getBoundingClientRect();
+                        tocNav.classList.add('toc-follow-fixed');
+                        tocNav.style.left = rect.left + 'px';
+                        tocNav.style.width = rect.width + 'px';
+                    } else {
+                        tocNav.classList.remove('toc-follow-fixed');
+                        tocNav.style.left = '';
+                        tocNav.style.width = '';
+                    }
+                }
+
+                updateFixedState();
+                window.addEventListener('scroll', updateFixedState, { passive: true });
+                window.addEventListener('resize', function () {
+                    tocNav.classList.remove('toc-follow-fixed');
+                    tocNav.style.left = '';
+                    tocNav.style.width = '';
+                    setupTocFollow();
+                });
+            }
+
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', setupTocFollow);
+            } else {
+                setupTocFollow();
+            }
+        })();
+    </script>
+    <script>
+    (function () {
+        if (window.location.hash.match(/^#comment-\d+$/)) {
+            $('#comment_thread').collapse('show');
+        }
+    })();
+    window.onhashchange=function(){
+        if (window.location.hash.match(/^#comment-\d+$/))
+            window.location.reload(true);
+    }
+    $('#comment_thread').on('shown', function () {
+        var link = document.getElementById('comment-accordion-toggle');
+        var old_innerHTML = link.innerHTML;
+        $(link).fadeOut(200, function() {
+            $(this).text('Click here to hide comments').fadeIn(200);
+        });
+        $('#comment_thread').on('hidden', function () {
+            $(link).fadeOut(200, function() {
+                $(this).text(old_innerHTML).fadeIn(200);
+            });
+        })
+    })
+</script>
+
+    </body>
+    <!-- Theme: Elegant built for Pelican
+        License : MIT -->
+</html>

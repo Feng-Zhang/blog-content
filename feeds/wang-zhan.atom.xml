@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>章峰的网站 - 网站</title><link href="https://bioinfo.host/" rel="alternate"/><link href="https://bioinfo.host/feeds/wang-zhan.atom.xml" rel="self"/><id>https://bioinfo.host/</id><updated>2026-07-02T09:40:00+08:00</updated><entry><title>pelican 创建静态网站</title><link href="https://bioinfo.host/pelican.html" rel="alternate"/><published>2026-07-01T15:48:00+08:00</published><updated>2026-07-02T09:40:00+08:00</updated><author><name>章峰</name></author><id>tag:bioinfo.host,2026-07-01:/pelican.html</id><summary type="html">
+&lt;h2 id="_1"&gt;介绍&lt;a class="headerlink" href="#_1" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;之前用过hexo和hugo搭建静态网站，确实可以快速生一个网页，详细信息见&lt;a href="https://bioinfo.host/hugo-github-netlify.html"&gt;免费创建个人静态网站最佳实践：hugo+github+netlify&lt;/a&gt;。但是由于不懂JavaScript和GO语言，没有办 …&lt;/p&gt;</summary><content type="html">
+&lt;h2 id="_1"&gt;介绍&lt;a class="headerlink" href="#_1" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;之前用过hexo和hugo搭建静态网站，确实可以快速生一个网页，详细信息见&lt;a href="https://bioinfo.host/hugo-github-netlify.html"&gt;免费创建个人静态网站最佳实践：hugo+github+netlify&lt;/a&gt;。但是由于不懂JavaScript和GO语言，没有办法对网页样式进行细致地调整。此外，由于它们所使用主题的不断更新，可很难与自己的网站合并，导致网站出问题。实践中发现，主题什么的简单一点好，更主要是把精力放到内容创作上，因此我对网站生成器的要求变为：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;主要使用python语法&lt;/li&gt;
+&lt;li&gt;配置要简单，不用花精力在配置上。&lt;/li&gt;
+&lt;li&gt;没事不要去折腾主题&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Perlican是用Python实现的一个静态网站生成器，支持reStructuredText或Markdown。它支持以下功能：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;博客文章和静态网页&lt;/li&gt;
+&lt;li&gt;支持评论。评论是通过第三方服务Disqus支持的。即评论数据保存在第三方服务器上&lt;/li&gt;
+&lt;li&gt;主题支持&lt;/li&gt;
+&lt;li&gt;把博客文章生成PDF格式文档&lt;/li&gt;
+&lt;li&gt;多语言博客支持，如可以用英文和中文写同一篇博客。不同语言访问者访问相应语言的博文&lt;/li&gt;
+&lt;li&gt;支持Atom/RSS订阅&lt;/li&gt;
+&lt;li&gt;博文中代码高亮支持&lt;/li&gt;
+&lt;li&gt;博客搬家支持(WordPress, Dotclear, 或RSS feeds)&lt;/li&gt;
+&lt;li&gt;支持插件，如Twiter, Google Analytics等&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="_2"&gt;快速开始&lt;a class="headerlink" href="#_2" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;安装&lt;/span&gt;
+&lt;span class="n"&gt;conda&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;create&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;pelican&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;python&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mf"&gt;3.11&lt;/span&gt;
+&lt;span class="n"&gt;conda&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;activate&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;pelican&lt;/span&gt;
+&lt;span class="n"&gt;pip&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;install&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="ss"&gt;"pelican[markdown]"&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;安装pelican&lt;/span&gt;
+&lt;span class="n"&gt;pip&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;install&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;pelican&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;i18n&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;subsites&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;双语翻译&lt;/span&gt;&lt;span class="err"&gt;，&lt;/span&gt;&lt;span class="n"&gt;不需要不用安装&lt;/span&gt;
+&lt;span class="n"&gt;pip&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;install&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;beautifulsoup4&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;安装toc插件依赖&lt;/span&gt;
+&lt;span class="n"&gt;pip&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;install&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;pymdown&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;extensions&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;latex&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;渲染&lt;/span&gt;
+
+&lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;创建目录&lt;/span&gt;
+&lt;span class="n"&gt;mkdir&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="n"&gt;projects&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;myblog&lt;/span&gt;
+&lt;span class="n"&gt;cd&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="n"&gt;projects&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;myblog&lt;/span&gt;
+
+&lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;初始设置&lt;/span&gt;
+&lt;span class="n"&gt;pelican&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;quickstart&lt;/span&gt;
+
+&lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mf"&gt;4.&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;输出静态网页&lt;/span&gt;
+&lt;span class="n"&gt;pelican&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;content&lt;/span&gt;
+
+&lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;本地展示&lt;/span&gt;
+&lt;span class="n"&gt;pelican&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c1"&gt;--listen&lt;/span&gt;
+&lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;或者在开发过程中&lt;/span&gt;&lt;span class="err"&gt;，&lt;/span&gt;&lt;span class="n"&gt;希望内容有变化本地网页同时变化&lt;/span&gt;&lt;span class="err"&gt;，&lt;/span&gt;&lt;span class="n"&gt;而不需要重新运行&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c1"&gt;--listen&lt;/span&gt;
+&lt;span class="n"&gt;pelican&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;l&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;
+
+&lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;发布到github&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;page展示&lt;/span&gt;
+&lt;span class="n"&gt;pelican&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;content&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;publishconf&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;py&lt;/span&gt;
+&lt;span class="n"&gt;cd&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;output&lt;/span&gt;
+&lt;span class="n"&gt;git&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;init&lt;/span&gt;
+&lt;span class="n"&gt;git&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;remote&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;add&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;origin&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;XX&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;如git&lt;/span&gt;&lt;span class="nv"&gt;@github&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nl"&gt;com&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;Feng&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;Zhang&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;blog&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;content&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;git&lt;/span&gt;
+&lt;span class="n"&gt;git&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;push&lt;/span&gt;
+&lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nl"&gt;https&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="n"&gt;Feng&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;Zhang&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;github&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;io&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;blog&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;content&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;可以在网站上看到内容&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;这些代码可以快速生成一个网站，但是想让网站变成你心目中的样子还需要进行更多地配置。下面进行详细解释。&lt;/p&gt;
+&lt;h2 id="_3"&gt;内容&lt;a class="headerlink" href="#_3" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;最简单的方法是使用markdown进行编写。和一般的markdown有点区别的是，需要在开头写明metadata信息，方便网站进行引用。
+常用的metadata有以下几种：&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;Title&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;标题&lt;/span&gt;
+&lt;span class="n"&gt;Date&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;创建时间&lt;/span&gt;
+&lt;span class="n"&gt;Modified&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;修改时间&lt;/span&gt;
+&lt;span class="n"&gt;Category&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;分类，一般只有一个&lt;/span&gt;
+&lt;span class="n"&gt;Tags&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;标签，可以有多个&lt;/span&gt;
+&lt;span class="n"&gt;Slug&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;文章的&lt;/span&gt;&lt;span class="n"&gt;URL别名&lt;/span&gt;&lt;span class="err"&gt;，只有一个&lt;/span&gt;
+&lt;span class="n"&gt;Authors&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Feng&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Zhang&lt;/span&gt;
+&lt;span class="n"&gt;Lang&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;zh&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id="_4"&gt;发布&lt;a class="headerlink" href="#_4" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;写的网站如何进行发布呢？一般得买域名并进行渲染，这个有点麻烦。有个最简单的方法是使用Github Pages，即把生成好的静态文件（HTML/CSS/JS）上传到 GitHub 仓库的指定仓库，然后 GitHub 自动帮你部署成网站。访问网址为&lt;code&gt;https://username.github.io/仓库名&lt;/code&gt;，比如我把静态文件上传blog-content仓库，访问网站即为 &lt;code&gt;https://feng-zhang.github.io/blog-content/&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;把output下文件push到github后，打开网站后是404，原因是github page没有配置。
+GitHub Pages 不会自动帮你把仓库“变成网站”，需要进行配置：
+1.去 GitHub 仓库：Settings → Pages
+2.然后设置：&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;Source&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Deploy&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;from&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;branch&lt;/span&gt;
+&lt;span class="n"&gt;Branch&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;master&lt;/span&gt;
+&lt;span class="n"&gt;Folder&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;root&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id="_5"&gt;设置&lt;a class="headerlink" href="#_5" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;详细配置示例可以到https://github.com/Feng-Zhang/blog-pelican/blob/master/pelicanconf.py 查看，把个性化的东西进行更改就行。&lt;/p&gt;
+&lt;h3 id="_6"&gt;时间和日期&lt;a class="headerlink" href="#_6" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;LOCALE：控制博客“时间/日期/语言显示风格”，让文章看起来符合中文或英文习惯。&lt;/p&gt;
+&lt;h2 id="_7"&gt;插件&lt;a class="headerlink" href="#_7" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;pelican从3.0版本开始支持插件。通过插件，不必直接修改Pelican的核心代码就可以给Pelican添加新功能。&lt;/p&gt;
+&lt;h3 id="1"&gt;1 如何使用插件&lt;a class="headerlink" href="#1" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Pelican从4.5版本开始使用了一种全新的插件结构，利用了命名空间包，并且可以轻松地通过 Pip 进行安装。支持此结构地插件都会被安装在命名空间包 pelican.plugins 下，因此Pelican可以自动发现他们。下面的命令可以用于查看环境中用Pip安装的所有插件：&lt;code&gt;pelican-plugins&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;若将 PLUGINS 配置项设为默认的 None ，Pelican会自动发现命名空间中的插件并且将他们全部加载；若你在 PLUGINS 设置项中指定了一系列的插件，Pelican就不会去自动发现插件，也就是说，你需要显式地指定所有要使用的插件。
+在配置 PLUGINS 时，有两种方式。一是用字符串列表指定插件的名称，可以是包含命名空间的完整名称（例如 pelican.plugins.myplugin ），也可以是简短名称（ myplugin）：&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nx"&gt;PLUGINS&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="err"&gt;'&lt;/span&gt;&lt;span class="kn"&gt;package&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;myplugin&lt;/span&gt;&lt;span class="err"&gt;'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;span class="w"&gt;           &lt;/span&gt;&lt;span class="err"&gt;'&lt;/span&gt;&lt;span class="nx"&gt;namespace_plugin1&lt;/span&gt;&lt;span class="err"&gt;'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;span class="w"&gt;           &lt;/span&gt;&lt;span class="err"&gt;'&lt;/span&gt;&lt;span class="nx"&gt;pelican&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;plugins&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;namespace_plugin2&lt;/span&gt;&lt;span class="err"&gt;'&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;二是在设置文件中先import进来，再将import进的模块放在 PLUGINS 设置项中：&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;from&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nn"&gt;package&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;myplugin&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nn"&gt;pelican.plugins&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;namespace_plugin1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;namespace_plugin2&lt;/span&gt;
+&lt;span class="n"&gt;PLUGINS&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;myplugin&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;namespace_plugin1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;namespace_plugin2&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;在尝试不同的插件时（尤其是那些处理元数据和内容的插件），缓存可能会相互干扰，一些更改不会生效。发生这种情况时，就需要通过设置 LOAD_CONTENT_CACHE = False 或使用 --ignore-cache 命令行选项禁用缓存。
+如果插件处于无法直接进行import的路径，可以在 PLUGIN_PATHS 配置项中指定这些路径。如下例所示， PLUGIN_PATHS 中的路径可以是绝对的，也可以是相对于设置文件的：&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;PLUGIN_PATHS = ["plugins", "/srv/pelican/plugins"]
+PLUGINS = ["assets", "liquid_tags", "sitemap"]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id="2"&gt;2 在哪儿下载插件&lt;a class="headerlink" href="#2" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;新的命名空间插件可以在GitHub的 &lt;a href="https://github.com/pelican-plugins"&gt;pelican-plugins 组织&lt;/a&gt; 中找到，每个插件都是一个独立的仓库。而老的插件则可以在GitHub的 &lt;a href="https://github.com/getpelican/pelican-plugins"&gt;pelican-plugins 仓库&lt;/a&gt; 中找到。这些老的插件会逐步淘汰并转移到新的命名空间版本。&lt;/p&gt;
+&lt;h3 id="pelican-extract-toc"&gt;pelican-extract-toc&lt;a class="headerlink" href="#pelican-extract-toc" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;pelican显示markdown时，将toc展示出来&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;# 在老系统中，需要手动clone
+git clone  https://github.com/getpelican/pelican-plugins
+pip install beautifulsoup4 # 安装依赖
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id="_8"&gt;双语插件&lt;a class="headerlink" href="#_8" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;在新仓库中，直接使用pip安装&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;pip install pelican-i18n-subsites
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id="_9"&gt;主题&lt;a class="headerlink" href="#_9" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="1_1"&gt;1.下载主题&lt;a class="headerlink" href="#1_1" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;git clone https://github.com/getpelican/pelican-themes
+
+# 只下载 Elegant 这个主题。
+git submodule update --init elegant
+
+# 如果想下载所有主题，速度有点慢：
+git submodule update --init --recursive
+# 或者一开始就：
+git clone --recursive https://github.com/getpelican/pelican-themes
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id="2_1"&gt;2.配置主题&lt;a class="headerlink" href="#2_1" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;在pelicanconf.py中配置THEME = "pelican-themes/elegant"&lt;/p&gt;
+&lt;h2 id="_10"&gt;评论&lt;a class="headerlink" href="#_10" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;elegant主题有内置评论系统Utterances。只要在在 pelicanconf.py 中加入 Utterances 配置，文章页会加载评论组件。publishconf.py 会继承这些设置，发布时无需再改。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="gh"&gt;#&lt;/span&gt; Comments (Utterances → GitHub Issues: Feng-Zhang/blog-pelican-comment)
+UTTERANCES_REPO = "Feng-Zhang/blog-pelican-comment"
+UTTERANCES_THEME = "github-light"
+COMMENTS_INTRO = "欢迎留言，使用 GitHub 账号登录即可评论。"
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;你还需要在 GitHub 上完成这几步（否则评论区会空白或报错）：&lt;/p&gt;
+&lt;ol start="2"&gt;
+&lt;li&gt;确认 Feng-Zhang/blog-pelican-comment 是 公开仓库&lt;/li&gt;
+&lt;li&gt;在仓库 Settings → General → Features 里开启 Issues&lt;/li&gt;
+&lt;li&gt;打开 https://utteranc.es/，安装 Utterances GitHub App，并授权该仓库
+完成后重新部署网站，打开任意文章页，点击 Comments 折叠区即可看到评论框。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;可选设置：
+某篇文章不想开评论，在 front matter 里加 comments: false
+深色主题可改 UTTERANCES_THEME = "github-dark"
+关闭某篇评论：utterances_filter: on（需同时设 UTTERANCES_FILTER = True）&lt;/p&gt;
+&lt;h2 id="_11"&gt;小结&lt;a class="headerlink" href="#_11" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;实践过程中，通过上面的设置我可以得到一个还不错的网站。但是想要把网站修改成自己想要的样式，还是需要个性化写一些html的配置。喜欢折腾的朋友可以借助 vibe coding 的工具进行修改。&lt;/p&gt;
+&lt;h2 id="_12"&gt;参考资料&lt;a class="headerlink" href="#_12" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Pelican document： https://docs.getpelican.com/en/latest/&lt;/li&gt;
+&lt;li&gt;pelican github: https://github.com/getpelican/pelican&lt;/li&gt;
+&lt;li&gt;pelican主题：https://github.com/getpelican/pelican-themes&lt;/li&gt;
+&lt;/ul&gt;</content><category term="网站"/><category term="pelican"/></entry><entry><title>免费创建个人静态网站最佳实践：hugo+github+netlify</title><link href="https://bioinfo.host/hugo-github-netlify.html" rel="alternate"/><published>2020-05-25T10:20:00+08:00</published><updated>2020-07-06T19:30:00+08:00</updated><author><name>Alexis Metaireau</name></author><id>tag:bioinfo.host,2020-05-25:/hugo-github-netlify.html</id><summary type="html">&lt;p&gt;利用hugo+github+netlify创建个人静态网站最佳方式，专注写作而不是网页控件。&lt;/p&gt;</summary><content type="html">&lt;hr/&gt;
+&lt;p&gt;[toc]&lt;/p&gt;
+&lt;h2 id="_1"&gt;一、前言&lt;a class="headerlink" href="#_1" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;关于搭建一个博客或个人网站的好处不用我多说，但创建网站的难度可能会让人望而却步。本人从网络上获得过很多帮助，学到很多。很早就萌发了自己建网站并分享知识的想法，但是又不想在简书这类的网站上写作。原谅我是个拖延控，有时间就写一点，很可能一篇文章写好久，也不喜欢在网上编辑。此外，知识需要积累形成框架，由于平时我所有的笔记都放在有道云笔记中，复制粘贴到简书有时候格式不对，又不想进行二次编辑。最重要的是不够Geek（装逼）。&lt;/p&gt;
+&lt;p&gt;其实中间有过一段时间，利用hexo、github和github page创建过静态网站。但是用得不太顺手，原因有很多，比如：老是花时间在怎么改网页主题上，而不是专注在写作上；markdown（md）文件中的图片迁移很麻烦，网上的图片老是会丢失；github page 在国内打开很慢而且SEO不容易搜索到。因此，一直耽误到现在，但一直贼心不死，想得到一个不太需要维护，可以专注写作，文档可以同步（在别的电脑上也可以编辑），又很geek的网站。我的想法是把所有笔记保存在有道云笔记中进行维护和整理，需要分享的话可以在本地用typora写md文档。此外，md文档中的图片用图床解决移动问题，然后托管到git自动渲染成网页。这样只要图床不挂，分享或上传到其它平台就很方便，因为只要复制md文档就行。为什么不直接用有道云笔记中的md呢？因为插入图片得是VIP才行，而导出来的md文档里所有图片的超链接是私人链接，移到别的地方根本没办法显示图片。最终我觉得搭网站最好的方式是：hugo+github+Netlify。适合我的笔记保存和写作的最佳方式是：有道云笔记+typora+picgo。如果觉得太麻烦了，不想把博客和有道云笔记等之类的笔记工具连接在一起，也不会传到其它平台上，可以直接用typora写作，利用hugo的page bundle绑定图片。&lt;/p&gt;
+&lt;p&gt;关于利用hugo和Github建网站的博客很多，但是有些博客内容有些出入，可能是由于英文翻译或版本更新所造成的。这里建议大家直接看hugo的&lt;a href="https://gohugo.io/getting-started/quick-start/"&gt;英文官网&lt;/a&gt;和&lt;a href="https://livebook.manning.com/book/hugo-in-action/about-this-meap/v-4/"&gt;hugo in action&lt;/a&gt;，或者&lt;a href="https://s0gohugo0io.icopy.site"&gt;官方翻译&lt;/a&gt;。此外，网上的博客可以进行参考。这篇博客主要针对搭建过程中可能遇到的问题进行记录，希望对大家有所帮助。&lt;/p&gt;
+&lt;h2 id="_2"&gt;二、原理&lt;a class="headerlink" href="#_2" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;那么如何用静态网页创建网站呢？很多博客一上来就直接讲方法，怎么一步步运行，得到一个简陋的网页。但是不知其所以然，因此这里想先介绍一下基本原理，方便理解和后面的debug。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;首先你得在本地生成静态网页文件。这里推荐用hugo或hexo。&lt;/li&gt;
+&lt;li&gt;然后把静态网页文件托管到github仓库。这里推荐使用git和gitlab工具。&lt;/li&gt;
+&lt;li&gt;把远程的静态网页文件进行渲染，形成让大家可根据网址直接阅览的网页。可用github page和Netlify.&lt;/li&gt;
+&lt;li&gt;找到有道云笔记的md文件，用typora进行编辑，并用图床解决图片容易丢失问题。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;关于hugo和hexo，github和gitlab，github page和Netlify的差别网上有很多博客，这里就不赘述了。目前我觉得最好的方式是：hugo+github+Netlify。&lt;/p&gt;
+&lt;h2 id="_3"&gt;三、快速入门&lt;a class="headerlink" href="#_3" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;如果有相关静态网页生成的经历，可以直接忽略快速入门，直接到下一节：进阶。&lt;/p&gt;
+&lt;h3 id="1"&gt;1、本地生成静态网页文件&lt;a class="headerlink" href="#1" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;如果不想看英文的，可以参考&lt;a href="https://jdhao.github.io/2018/10/10/hexo_to_hugo/"&gt;这篇&lt;/a&gt;和&lt;a href="https://mogeko.me/2018/018/"&gt;这篇&lt;/a&gt;中文入门。&lt;/p&gt;
+&lt;p&gt;下面简要阐述过程：&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nx"&gt;hugo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;new&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;site&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;hugo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="nx"&gt;建立站点以后&lt;/span&gt;&lt;span class="err"&gt;，&lt;/span&gt;&lt;span class="nx"&gt;博客根目录下默认有这些文件和子目录&lt;/span&gt;&lt;span class="err"&gt;：&lt;/span&gt;&lt;span class="nx"&gt;archetypes&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="nx"&gt;config&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;toml&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="nx"&gt;content&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="w"&gt;     &lt;/span&gt;&lt;span class="nx"&gt;data&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="nx"&gt;layouts&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="w"&gt;     &lt;/span&gt;&lt;span class="nx"&gt;static&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="w"&gt;      &lt;/span&gt;&lt;span class="nx"&gt;themes&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;
+&lt;span class="nx"&gt;cd&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;hugo&lt;/span&gt;
+&lt;span class="nx"&gt;git&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;init&lt;/span&gt;
+&lt;span class="nx"&gt;git&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;submodule&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;add&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;https&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//github.com/budparr/gohugo-theme-ananke.git themes/ananke # 安装主题&lt;/span&gt;
+&lt;span class="nx"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;'&lt;/span&gt;&lt;span class="nx"&gt;theme&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;"ananke"&lt;/span&gt;&lt;span class="err"&gt;'&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;config&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;toml&lt;/span&gt;
+&lt;span class="nx"&gt;hugo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;new&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;posts&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nx"&gt;my&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nx"&gt;first&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nx"&gt;post&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;md&lt;/span&gt;
+&lt;span class="nx"&gt;hugo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;server&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;这时出现类似下面的信息，说明生成静态网页成功。可以在浏览器上输入 http://localhost:1313/ 进行浏览。&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nx"&gt;Building&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;sites&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;…&lt;/span&gt;
+&lt;span class="w"&gt;                   &lt;/span&gt;&lt;span class="o"&gt;|&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;EN&lt;/span&gt;
+&lt;span class="o"&gt;-------------------+-----&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="nx"&gt;Pages&lt;/span&gt;&lt;span class="w"&gt;            &lt;/span&gt;&lt;span class="o"&gt;|&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;11&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="nx"&gt;Paginator&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;pages&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="o"&gt;|&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="nx"&gt;Non&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nx"&gt;page&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;files&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;&lt;span class="o"&gt;|&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="nx"&gt;Static&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;files&lt;/span&gt;&lt;span class="w"&gt;     &lt;/span&gt;&lt;span class="o"&gt;|&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;39&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="nx"&gt;Processed&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;images&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;|&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="nx"&gt;Aliases&lt;/span&gt;&lt;span class="w"&gt;          &lt;/span&gt;&lt;span class="o"&gt;|&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="nx"&gt;Sitemaps&lt;/span&gt;&lt;span class="w"&gt;         &lt;/span&gt;&lt;span class="o"&gt;|&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="nx"&gt;Cleaned&lt;/span&gt;&lt;span class="w"&gt;          &lt;/span&gt;&lt;span class="o"&gt;|&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;
+
+&lt;span class="nx"&gt;Built&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;in&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;37&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;ms&lt;/span&gt;
+&lt;span class="nx"&gt;Watching&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;for&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;changes&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;in&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;E&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="err"&gt;\&lt;/span&gt;&lt;span class="nx"&gt;blogs&lt;/span&gt;&lt;span class="err"&gt;\&lt;/span&gt;&lt;span class="nx"&gt;hugo&lt;/span&gt;&lt;span class="err"&gt;\&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="nx"&gt;archetypes&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="nx"&gt;content&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="nx"&gt;data&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="nx"&gt;layouts&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="nx"&gt;static&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="nx"&gt;themes&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="nx"&gt;Watching&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;for&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;config&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;changes&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;in&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;E&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="err"&gt;\&lt;/span&gt;&lt;span class="nx"&gt;blogs&lt;/span&gt;&lt;span class="err"&gt;\&lt;/span&gt;&lt;span class="nx"&gt;hugo&lt;/span&gt;&lt;span class="err"&gt;\&lt;/span&gt;&lt;span class="nx"&gt;config&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;toml&lt;/span&gt;
+&lt;span class="nx"&gt;Environment&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;"development"&lt;/span&gt;
+&lt;span class="nx"&gt;Serving&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;pages&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;from&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;memory&lt;/span&gt;
+&lt;span class="nx"&gt;Running&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;in&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;Fast&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;Render&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;Mode&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;For&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;full&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;rebuilds&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;on&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;change&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;hugo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;server&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="nx"&gt;disableFastRender&lt;/span&gt;
+&lt;span class="nx"&gt;Web&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;Server&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;is&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;available&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;at&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;http&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//localhost:1313/ (bind address 127.0.0.1)&lt;/span&gt;
+&lt;span class="nx"&gt;Press&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;Ctrl&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="nx"&gt;C&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;to&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;stop&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;如果出现下面的错误：&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;hugo new posts/my-first-post.md
+Error: "E:\blogs\quickstart\config.toml:3:1": unmarshal failed: Near line 3 (last key parsed ''): bare keys cannot contain '\x00'
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;这是因为E:\blogs\hugo\config.toml里面有一些NUL的间隔符，可能是由于echo的命令产生的。手动把它们删除就行了。&lt;/p&gt;
+&lt;h3 id="2github"&gt;2、托管到github&lt;a class="headerlink" href="#2github" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;把我们本地生成的静态网页托管到&lt;a href="https://github.com"&gt;github&lt;/a&gt;上进行保存，而不用自己进行维护。
+首先在github上新建账号，并创建一个新的仓库，以仓库名为test为例。再下载安装&lt;a href="https://git-scm.com/"&gt;git&lt;/a&gt; 。&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;cd .\public
+git init
+git add .
+git commit -m "update"
+git remote add origin https://github.com/你的git账户/test.git
+git push origin master:master
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;这样就把东西上传到github上了。&lt;/p&gt;
+&lt;p&gt;为了方便发布网页，可以写成一个脚本，然后每次发布只要右键选择git bash here后运行./deploy.sh就可以。&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="ch"&gt;#!/bin/bash&lt;/span&gt;
+
+&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-e&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;"\033[0;32mDeploying updates to GitHub...\033[0m"&lt;/span&gt;
+
+&lt;span class="c1"&gt;# build the project&lt;/span&gt;
+hugo
+git&lt;span class="w"&gt; &lt;/span&gt;add&lt;span class="w"&gt; &lt;/span&gt;.
+
+&lt;span class="nv"&gt;msg&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"rebuilding site `date`"&lt;/span&gt;
+
+&lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;$#&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-eq&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="k"&gt;then&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;msg&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="nv"&gt;$1&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;
+&lt;span class="k"&gt;fi&lt;/span&gt;
+
+git&lt;span class="w"&gt; &lt;/span&gt;commit&lt;span class="w"&gt; &lt;/span&gt;-m&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="nv"&gt;$msg&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;
+
+&lt;span class="c1"&gt;# push source to github&lt;/span&gt;
+git&lt;span class="w"&gt; &lt;/span&gt;push&lt;span class="w"&gt; &lt;/span&gt;origin&lt;span class="w"&gt; &lt;/span&gt;master:master
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id="3netlify"&gt;3、用Netlify渲染网页&lt;a class="headerlink" href="#3netlify" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;如果要求不高，可以直接用Github Pages进行托管。但是Github在国内打开速度很慢，所以建议用&lt;a href="https://www.netlify.com"&gt;Netlify&lt;/a&gt;对托管到github上的静态网页进行布署。很简单，可以看这篇&lt;a href="https://kuleyu.github.io/hexolog/post/31808.html"&gt;教程&lt;/a&gt;。至此一个简陋的网页就建好了。记得改一下Netlify自动分配给你的域名，不过只能更改前缀。要求不高也还好了。下面简单描述一下操作步骤：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;用github的账号登陆&lt;a href="https://www.netlify.com"&gt;Netlify&lt;/a&gt;。&lt;/li&gt;
+&lt;li&gt;点击右上角的Create new site&lt;/li&gt;
+&lt;li&gt;跳转到第一步，connect to git provider，选github&lt;/li&gt;
+&lt;li&gt;pick a repository，选择存放代码的仓库。&lt;/li&gt;
+&lt;li&gt;Build options and deploy。点击Deploying就ok了。&lt;/li&gt;
+&lt;li&gt;等待一会配置，就会出现网址了。类似这样的https://priceless-morse-029791.netlify.app。&lt;/li&gt;
+&lt;li&gt;复制粘贴网址就大功告成。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;目前我们可以以网站形式来展示内容，但是初始化的见面一点也不cool啊。客官别急，请看下面进阶教程。&lt;/p&gt;
+&lt;h2 id="_4"&gt;四、进阶&lt;a class="headerlink" href="#_4" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="1_1"&gt;1、添加主题&lt;a class="headerlink" href="#1_1" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;首先我们可以到&lt;a href="https://themes.gohugo.io"&gt;hugo主题库&lt;/a&gt;中找一个自己喜欢的主题。我比较喜欢的一个主题是academic，B站上还有人介绍&lt;a href="https://www.bilibili.com/video/BV1Tt411g7jx?p=2"&gt;Academic视频&lt;/a&gt;。
+由于大部分主题都已经有站点所需要的各种文件夹，所以不用自己再建站点。直接clone下来，把主题换成子模块的就行。快速入门的什么的可以忘记了^_^。&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;git clone https://github.com/sourcethemes/academic-kickstart.git My_Website
+cd My_Website
+git submodule update --init --recursive
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id="2"&gt;2、修改网页布局&lt;a class="headerlink" href="#2" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;我们可以根据&lt;a href="https://sourcethemes.com/academic/docs/"&gt;academic文档&lt;/a&gt;进行修改，变成你自己喜欢的样式。这个academic帮助文档讲得很清楚，这里就不赘述。&lt;/p&gt;
+&lt;p&gt;不过这里提一下添加评论系统，这应该是一个刚需。要不然没有互动在那孤芳自赏？&lt;/p&gt;
+&lt;p&gt;由于academic主题设置commento很方便，这里图方便直接用了：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;把config/_default/params.toml中的&lt;code&gt;engine = 0&lt;/code&gt;改成&lt;code&gt;engine = 2&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;~~注册&lt;a href="https://commento.io"&gt;commento&lt;/a&gt;账号，把你自己博客域名进行绑定即可。~~
+   commento后来发现是收费的，现改成valine。&lt;/li&gt;
+&lt;li&gt;valine的加载有点麻烦，可以参考&lt;a href="https://www.smslit.top/2018/07/08/hugo-valine/"&gt;博客&lt;/a&gt;。
+   此外，国外用的比较多的有Disqus，国内有valine和Gittalk。不过&lt;a href="https://github.com/gitalk/gitalk/"&gt;Gitalk&lt;/a&gt;有点复杂，可参考这篇&lt;a href="https://mogeko.me/2018/024/"&gt;博客&lt;/a&gt;进行安装。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="_5"&gt;五、写作&lt;a class="headerlink" href="#_5" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="1_2"&gt;1、图片管理&lt;a class="headerlink" href="#1_2" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;在md文档中插入的图片是一个麻烦事。一般来说有三种解决方案。如下所示&lt;/p&gt;
+&lt;h4 id="static"&gt;放置在static中&lt;a class="headerlink" href="#static" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;可以直接把图片放在static中，不过以后图片一多就麻烦了。如果后面想迁移什么的就太麻烦了。&lt;/p&gt;
+&lt;h4 id="page-bundle"&gt;利用page bundle&lt;a class="headerlink" href="#page-bundle" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;可以在post下面新建文件夹，重命名为你想要的博客名后新建md文件。这个md文档名称一定得是&lt;strong&gt;index.md&lt;/strong&gt;，然后我们就可在同一目录下放置图片。md可以使用相对位置进行引用。&lt;/p&gt;
+&lt;p&gt;其实如果不是为了在有道云笔记中同时显示md文件中的图片，这种方式是最方便的，而且免费。&lt;/p&gt;
+&lt;h4 id="_6"&gt;利用图床&lt;a class="headerlink" href="#_6" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;这里利用picgo工具，把图片复制后，按一个快捷键就会自动上传到picgo内设置的图床上。&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://picgo.github.io/PicGo-Doc/zh/"&gt;picgo教程&lt;/a&gt;支持8大图床。可以选免费的&lt;strong&gt;smms&lt;/strong&gt;和github（虽然github慢了点），也可以氪金买云服务。&lt;/p&gt;
+&lt;p&gt;同时typora还支持picgo的插件，直接复制图片就可以实现上传到云端。不过配置可能会遇到些问题，可以参考这篇&lt;a href="https://www.jianshu.com/p/4cd14d4ceb1d"&gt;博客排坑&lt;/a&gt;。&lt;/p&gt;
+&lt;hr/&gt;
+&lt;p&gt;综上，图床是最方便的，但需要点时间配置各个软件。page bundle是最简单的，但是如果没法移动到其它平台。&lt;/p&gt;
+&lt;h3 id="2_1"&gt;2、更新博客的流程&lt;a class="headerlink" href="#2_1" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;日后更新博客时就只需要在本地的hugo\content\post文件夹中编辑新的md文件，然后&lt;code&gt;./deploy.sh&lt;/code&gt;就会自动编译静态网页然后上传至github，同时Netlify会检测Github中库的动态，并及时更新发布的网站内容。&lt;/p&gt;
+&lt;h3 id="3"&gt;3、在另一台电脑上写作&lt;a class="headerlink" href="#3" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;由于静态网页是托管到github，可以很方便地进行同步。直接用&lt;code&gt;git pull&lt;/code&gt;把github拉下来就行，写完后&lt;code&gt;git push&lt;/code&gt; 到仓库就万事大吉了。&lt;/p&gt;
+&lt;hr/&gt;
+&lt;p&gt;以上就是免费创建个人静态网站地最佳实践。全免费，渲染快捷且可以专注写作，不用费心维护。&lt;/p&gt;
+&lt;h2 id="_7"&gt;六、域名&lt;a class="headerlink" href="#_7" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;最后为了装一下，怎么也得换个个性化的域名啊。网上到处看了看，感觉比较复杂。因为在国内买域名还得备案，听说很麻烦。后来直接到name.com购买了域名。用了一段时间后，发现有点贵，最后转到阿里云买域名。&lt;/p&gt;
+&lt;h3 id="_8"&gt;域名解析&lt;a class="headerlink" href="#_8" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;可以参考这篇&lt;a href="https://www.cnblogs.com/codernie/p/9062104.html"&gt;博客&lt;/a&gt;。
+部署成功，&lt;a href="https://www.netlify.com/"&gt;Netlify&lt;/a&gt;会自动分配一个随机的域名给你。我们可以自行修改成方便记忆的，比如我这里使用的fengbuzhi.netlify.app。但是这个域名太长了，因此可以设置自定义域名。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;登陆netlify。选择相对应的网站。&lt;/li&gt;
+&lt;li&gt;绑定域名。Domain settings-Add custom domain - 输入完整域名-保存。这时会出现一个警告，Check DNS configuration，这是因为这时还没有被域名服务商解析。&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;解析域名。登陆自己域名的服务商网站，这里以阿里云为例，添加一条CNAME解析。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;域名列表-找到域名并在域名右边点击解析设置
+      &lt;img alt="image" src="https://bioinfo.host/zh/post/hugo/clipboard.png"/&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;在打开的窗口点击添加记录
+      记录类型：选择CNAME
+      主机记录：默认@，若要需要www访问可再添加一个
+      解析路线：默认
+      记录值：netlify中的默认域名（我的是fengbuzhi.netlify.app，请用自己的，否则将连到我的站点）
+      TTL：默认
+      &lt;img alt="image" src="https://bioinfo.host/zh/post/hugo/clipboard1.png"/&gt;&lt;/li&gt;
+&lt;li&gt;生成HTTPS证书，实现HTTPS访问。Domain settings-Verify DNS configuration-确定&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;值得注意的是：你也可以增加A记录，解析IP地址。这是由netlify提供的，可过ping fengbuzhi.netlify.app来得到。但是有个疑问这个IP地址每次ping得到的都不一样，不知道什么意思？
+此外，在你的域名购买商处管理DNS的时候，要加两条DNS。一条是没有www，一条是有www。阿里云会自动添加，但在name服务商中需要手动添加。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="image-20200526113018470" src="https://i.loli.net/2020/05/26/3kwRGpLSuICDW8d.png"/&gt;&lt;/p&gt;
+&lt;h2 id="debug"&gt;七、Debug&lt;a class="headerlink" href="#debug" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;push error&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;git push academic master
+remote: Permission to Feng-Zhang/academic-kickstart.git denied to xiaofeng007.
+fatal: unable to access 'https://github.com/Feng-Zhang/academic-kickstart.git/': The requested URL returned error: 403
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;控制面板-用户帐户-凭据管理器-找到git:https://github.com-编辑
+对这个凭据进行编辑，把要远程的账号和密码加上。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="image-20200526130114714" src="https://i.loli.net/2020/05/26/Ox6Gdy9sVJzlm71.png"/&gt;&lt;/p&gt;</content><category term="网站"/><category term="hugo"/><category term="academic"/><category term="静态网站"/></entry></feed>
